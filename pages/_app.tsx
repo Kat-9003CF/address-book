@@ -7,6 +7,8 @@ import { ThemeProvider } from "styled-components";
 
 import theme from "../src/styles/theme";
 
+const testVariable = "";
+
 export default function App({ Component, pageProps }: AppProps) {
   const hasHydrated = useHasHydrated();
   if (!hasHydrated) {
