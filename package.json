@@ -6,15 +6,30 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "npx eslint . --ext .js,.jsx,.ts,.tsx --max-warnings=0",
+    "cypress": "cypress open",
+    "prepare": "husky install"
   },
   "dependencies": {
-    "next": "13.2.3",
-    "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "@types/styled-components": "^5.1.26",
+    "@typescript-eslint/eslint-plugin": "^5.54.1",
+    "@typescript-eslint/parser": "^5.54.1",
+    "cypress": "^12.7.0",
+    "framer-motion": "^10.1.0",
+    "husky": "^8.0.3",
+    "next": "^13.2.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-hot-toast": "^2.4.0",
+    "styled-components": "^5.3.8",
+    "zustand": "https://pkg.csb.dev/pmndrs/zustand/commit/75762b2a/zustand"
   },
   "devDependencies": {
-    "eslint": "8.35.0",
-    "eslint-config-next": "13.2.3"
+    "@types/node": "18.14.6",
+    "@types/react": "18.0.28",
+    "eslint": "^8.35.0",
+    "eslint-config-next": "13.2.3",
+    "typescript": "4.9.5",
+    "husky": "^8.0.3"
   }
 }

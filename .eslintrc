@@ -1,0 +1,28 @@
+{
+    "root": true,
+    "parser": "@typescript-eslint/parser",
+    "extends": [
+        "next",
+        "eslint:recommended",
+        "plugin:@typescript-eslint/eslint-recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:react/recommended"
+    ],
+    "rules": {
+        "no-console": "warn",
+    "no-only-tests/no-only-tests": "warn",
+    "react-hooks/exhaustive-depths": "off",
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": ["warn"],
+    "no-undef": "warn",
+    "no-useless-escape": "off",
+    "@typescript-eslint/ban-ts-comment": "warn",
+    "object-curly-spacing": ["error", "always"],
+    "array-bracket-spacing": ["error", "never"],
+    "react/jsx-tag-spacing": ["error", { "beforeSelfClosing": "always" }],
+    "react/jsx-curly-spacing": ["error", { "when": "never" }],
+    "react/jsx-uses-react": "off",
+    "react/react-in-jsx-scope": "off"
+     },
+     "plugins": ["@typescript-eslint", "no-only-tests", "react", "react-hooks"]
+  }
