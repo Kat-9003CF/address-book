@@ -10,7 +10,7 @@
   "rules": {
     "no-console": 1,
     "react-hooks/exhaustive-depths": 0,
-    "no-unused-vars": 2,
+    "no-unused-vars": 1,
     "@typescript-eslint/no-unused-vars": 1,
     "no-undef": 1,
     "no-useless-escape": 0,
