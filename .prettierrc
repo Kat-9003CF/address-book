@@ -1,0 +1,10 @@
+{
+    "plugins": [
+        "eslint-plugin-prettier"
+    ],
+    "semi": true,
+    "singleQuote": true,
+    "tabWidth": 2,
+    "printWidth": 120,
+    "useTabs": false
+}
