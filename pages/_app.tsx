@@ -6,6 +6,7 @@ import Head from 'next/head';
 import { ThemeProvider } from 'styled-components';
 
 import theme from '../src/styles/theme';
+import '../src/styles/fonts/fonts.css';
 
 export default function App({ Component, pageProps }: AppProps) {
   const hasHydrated = useHasHydrated();

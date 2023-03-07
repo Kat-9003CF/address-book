@@ -8,8 +8,7 @@ const theme = {
   },
 
   fonts: {
-    dmSans: 'DM Sans, sans-serif',
-    rebond: 'Rebond Grotesque, sans-serif',
+    robotoSlabLight: 'RobotoSlabLight, sans-serif',
   },
   fontSizes: {
     large: '61px',
