@@ -1,14 +1,10 @@
-import styled, { createGlobalStyle } from 'styled-components';
-
-export const GlobalStyle = createGlobalStyle`
-body {
-  padding: 0;
-  margin: 0;
-}`;
+import styled from 'styled-components';
 
 export const Container = styled.div`
+  max-width: 1920px;
+  border: 1px solid green;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 30px 80px;
+  padding: 60px 180px 0 120px;
 `;
