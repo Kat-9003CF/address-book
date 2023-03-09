@@ -1,7 +1,7 @@
 import { Container } from '../src/styles/generic';
 import styled from 'styled-components';
 import { H1 } from '../src/styles/typography';
-import { AddContactModal } from '../components/molecules';
+import { AddContactModal } from '../components/organisms';
 
 export default function Home() {
   return (
@@ -13,7 +13,7 @@ export default function Home() {
             <AddContactModal />
           </ColumnWrapper>
           <ColumnWrapper>
-            <H1>Input goes here</H1>
+            <h2>Input goes here</h2>
           </ColumnWrapper>
         </FlexWrapper>
       </ContentWrapper>
@@ -22,7 +22,6 @@ export default function Home() {
 }
 
 const ContentWrapper = styled.div`
-  border: 1px solid red;
   width: 100%;
 `;
 
@@ -33,7 +32,6 @@ const FlexWrapper = styled.div`
 `;
 
 const ColumnWrapper = styled.div`
-  border: 1px solid purple;
   .left {
     flex: 25%;
   }
