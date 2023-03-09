@@ -1,5 +1,6 @@
 {
   "extends": [
+    "plugin:cypress/recommended",
     "next",
     "eslint:recommended",
     "plugin:@typescript-eslint/eslint-recommended",
