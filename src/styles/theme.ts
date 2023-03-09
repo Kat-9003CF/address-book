@@ -1,7 +1,9 @@
 const theme = {
   colours: {
+    offWhite: '#FAFAFA',
+    darkTeal: '#1E4747',
     teal: '#297373',
-    lightTeal: '#7FAFAB',
+    lightTeal: '#7FAFAB1D',
     coral: '#ED6D63',
     lightCoral: '#F4A7A1',
     darkGrey: '#262626',
