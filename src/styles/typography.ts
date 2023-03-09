@@ -26,6 +26,11 @@ export const Placeholder = styled.p`
   font-family: ${(props) => props.theme.fonts.robotoSlabRegular};
   font-size: ${(props) => props.theme.fontSizes.small};
   line-height: ${(props) => props.theme.lineHeights.small};
-  font-weight: 700;
+  font-weight: 300;
   margin: 0;
+  z-index: 0;
+  position: absolute;
+  padding-left: 12px;
+  color: ${({ theme }) => theme.colours.darkGrey};
+  transition: 0.2s ease-in-out;
 `;
