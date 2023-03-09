@@ -1,1 +1,1 @@
-export { default as AddContactModal } from './AddContactModal';
+export { default as InputFieldWithLabel } from './InputFieldWithLabel';
