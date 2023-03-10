@@ -1,6 +1,11 @@
 /* eslint-disable no-unused-vars */
 import create from 'zustand';
 
+interface Contact {
+  firstName: string;
+  lastName: string;
+  emailAddress: string;
+}
 interface StoreState {
   theme: boolean;
   setTheme: () => void;
@@ -10,6 +15,8 @@ interface StoreState {
   setLastName: (lastName: string) => void;
   emailAddress: string;
   setEmailAddress: (emailAddress: string) => void;
+  createNewContact: (newContact: Contact) => void;
+  contacts: Contact[];
 }
 
 export const useAddressStore = create<StoreState>()((set) => ({
@@ -21,4 +28,9 @@ export const useAddressStore = create<StoreState>()((set) => ({
   setLastName: (lastName) => set(() => ({ lastName: lastName })),
   emailAddress: '',
   setEmailAddress: (emailAddress) => set(() => ({ emailAddress: emailAddress })),
+  contacts: [],
+  createNewContact: (newContact) =>
+    set(({ contacts }) => ({
+      contacts: [...contacts, newContact],
+    })),
 }));
