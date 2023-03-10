@@ -33,7 +33,7 @@ export default function AddContactModal() {
 
   const isDisabled = !firstName && !lastName && !emailAddress;
   return (
-    <OuterWrapper>
+    <ModalBorder>
       <InnerWrapper>
         <ModalHeader>Add Contact Details</ModalHeader>
         <InputFieldWithLabel
@@ -70,11 +70,19 @@ export default function AddContactModal() {
           </Button>
         </ButtonWrapper>
       </InnerWrapper>
-    </OuterWrapper>
+    </ModalBorder>
   );
 }
 
+const ModalBorder = styled(OuterWrapper)`
+  border: 1px solid ${(props) => props.theme.colours.teal};
+  border-radius: 4px;
+  max-width: 527px;
+  width: 100%;
+`;
+
 const InnerWrapper = styled.div`
+  margin: 37px 34px;
   display: flex;
   width: 100%;
   height: 100%;
