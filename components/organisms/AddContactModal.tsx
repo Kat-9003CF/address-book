@@ -6,21 +6,34 @@ import { useAddressStore } from '../../src/zustand/store';
 import { useEffect, useState } from 'react';
 
 export default function AddContactModal() {
-  const { firstName, setFirstName, lastName, setLastName, emailAddress, setEmailAddress, createNewContact } =
-    useAddressStore();
+  const {
+    firstName,
+    setFirstName,
+    lastName,
+    setLastName,
+    emailAddress,
+    setEmailAddress,
+    createNewContact,
+    setShowFirstModal,
+  } = useAddressStore();
   const [isValidEmail, setIsValidEmail] = useState(true);
 
   const addNewContact = ({
     firstName,
     lastName,
     emailAddress,
+    isValidEmail,
   }: {
     firstName: string;
     lastName: string;
     emailAddress: string;
+    isValidEmail: boolean;
   }) => {
-    const newContact = { firstName: firstName, lastName: lastName, emailAddress: emailAddress };
-    createNewContact(newContact);
+    if (isValidEmail) {
+      const newContact = { firstName: firstName, lastName: lastName, emailAddress: emailAddress };
+      createNewContact(newContact);
+      setShowFirstModal(false);
+    }
   };
 
   const validateEmail = (emailAddress: string) => {
@@ -55,15 +68,17 @@ export default function AddContactModal() {
           label="Email"
           type="email"
           value={emailAddress}
-          onChange={(event) => setEmailAddress((event.target as HTMLTextAreaElement).value)}
+          onChange={(event) => {
+            setEmailAddress((event.target as HTMLTextAreaElement).value);
+            setIsValidEmail(!validateEmail(emailAddress));
+          }}
           placeholder="Enter your email"
           error={!isValidEmail}
         />
         <ButtonWrapper>
           <Button
             onClick={() => {
-              setIsValidEmail(!validateEmail(emailAddress));
-              addNewContact({ firstName, lastName, emailAddress });
+              addNewContact({ firstName, lastName, emailAddress, isValidEmail });
             }}
             disabled={isDisabled}
           >
