@@ -29,6 +29,6 @@ const CardGridWrapper = styled.div`
 const InnerWrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 48px;
+  gap: 20px 48px;
   max-width: 990px;
 `;
