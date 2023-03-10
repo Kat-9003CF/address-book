@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import create from 'zustand';
 
-interface Contact {
+export interface Contact {
   firstName: string;
   lastName: string;
   emailAddress: string;
