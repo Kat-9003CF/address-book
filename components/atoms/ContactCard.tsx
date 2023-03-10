@@ -12,12 +12,10 @@ export default function ContactCard({
 }) {
   return (
     <CardWrapper>
-      <InnerWrapper>
-        <CardText>Name</CardText>
-        <CardDetails>{`${firstName} ${lastName}`}</CardDetails>
-        <CardText>Email</CardText>
-        <CardDetails>{`${emailAddress}`}</CardDetails>
-      </InnerWrapper>
+      <CardText>Name</CardText>
+      <CardDetails>{`${firstName} ${lastName}`}</CardDetails>
+      <CardText>Email</CardText>
+      <CardDetails>{`${emailAddress}`}</CardDetails>
     </CardWrapper>
   );
 }
@@ -27,14 +25,20 @@ const CardWrapper = styled.div`
   border: 1px solid ${(props) => props.theme.colours.teal};
   border-radius: 4px;
   padding: 35px 38px;
+  max-width: 284px;
+  max-height: 204px;
 `;
-const InnerWrapper = styled.div``;
 
 const CardText = styled(BodyText)`
   color: ${(props) => props.theme.colours.teal};
+
+  &:nth-child(3) {
+    margin-top: 16px;
+  }
 `;
 
 const CardDetails = styled(Placeholder)`
   z-index: 1;
   position: relative;
+  padding-left: 0;
 `;

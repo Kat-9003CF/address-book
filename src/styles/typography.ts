@@ -30,7 +30,7 @@ export const Placeholder = styled.p`
   margin: 0;
   z-index: 0;
   position: absolute;
-  padding-left: 12px;
+  margin-left: 12px;
   color: ${({ theme }) => theme.colours.darkGrey};
   transition: 0.2s ease-in-out;
 `;

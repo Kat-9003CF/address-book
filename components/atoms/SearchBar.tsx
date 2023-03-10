@@ -38,6 +38,7 @@ const SearchWrapper = styled.div`
 const SearchInput = styled.input`
 width: 100%;
 height: 44px;
+padding-left: 12px;
 border: none;
 background: ${(props) => props.theme.colours.lightTeal};
 border-radius: 4px 0 0 4px;
