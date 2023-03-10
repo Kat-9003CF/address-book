@@ -24,6 +24,7 @@ export const Button = styled.button`
   transition: 0.2s ease-in-out;
   &:hover {
     cursor: pointer;
+    opacity: 0.8;
   }
   &:disabled {
     cursor: inherit;
