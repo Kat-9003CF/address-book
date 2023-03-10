@@ -28,9 +28,17 @@ export const useAddressStore = create<StoreState>()((set) => ({
   setLastName: (lastName) => set(() => ({ lastName: lastName })),
   emailAddress: '',
   setEmailAddress: (emailAddress) => set(() => ({ emailAddress: emailAddress })),
-  contacts: [],
-  createNewContact: (newContact) =>
+  contacts: [
+    {
+      firstName: 'Selina',
+      lastName: 'Kyle',
+      emailAddress: 'iluvBatman@gmail.com',
+    },
+  ],
+  createNewContact: (newContact) => {
+    console.log(newContact);
     set(({ contacts }) => ({
       contacts: [...contacts, newContact],
-    })),
+    }));
+  },
 }));
