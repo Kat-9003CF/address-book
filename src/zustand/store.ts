@@ -19,6 +19,9 @@ interface StoreState {
   contacts: Contact[];
   searchTerms: string;
   setSearchTerms: (searchTerms: string) => void;
+  showFirstModal: boolean;
+  setShowFirstModal: (showSecondModal: boolean) => void;
+  resetForm: () => void;
 }
 
 export const useAddressStore = create<StoreState>()((set) => ({
@@ -61,4 +64,7 @@ export const useAddressStore = create<StoreState>()((set) => ({
   setSearchTerms: (searchTerms) => {
     set(() => ({ searchTerms: searchTerms }));
   },
+  showFirstModal: false,
+  setShowFirstModal: (value) => set(() => ({ showFirstModal: value })),
+  resetForm: () => set(() => ({ firstName: '', lastName: '', emailAddress: '' })),
 }));
