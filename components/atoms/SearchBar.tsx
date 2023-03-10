@@ -7,6 +7,7 @@ import { BodyText } from '../../src/styles/typography';
 export default function SearchBar() {
   const { searchTerms, setSearchTerms } = useAddressStore();
   const [softSearchTerms, setSoftSearchTerms] = useState(searchTerms);
+  const [disableButton, setDisableButton] = useState(true);
 
   return (
     <SearchAtomWrapper>
@@ -15,9 +16,20 @@ export default function SearchBar() {
         <SearchInput
           type="text"
           value={softSearchTerms}
-          onChange={(event) => setSoftSearchTerms((event.target as HTMLInputElement).value)}
+          onChange={(event) => {
+            setSoftSearchTerms((event.target as HTMLInputElement).value);
+            setDisableButton(!softSearchTerms);
+          }}
         />
-        <Button onClick={() => setSearchTerms(softSearchTerms)} isSearch disabled={!softSearchTerms}>
+        <Button
+          onClick={() => {
+            setSearchTerms(softSearchTerms);
+            setSearchTerms('');
+            setDisableButton(true);
+          }}
+          isSearch
+          disabled={disableButton}
+        >
           Search
         </Button>
       </SearchWrapper>
@@ -51,7 +63,6 @@ transition: 0.2s ease-in-out;
 cursor: 'text';
 &:focus {
   border-radius: 4px;
-  background: none;
   outline: 1px solid ${(props) => props.theme.colours.teal};
   box-shadow(0px 0px 3px ${({ theme }) => theme.colours.primary});
   transition: 0.2s ease-in-out;`;
