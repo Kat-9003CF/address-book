@@ -32,6 +32,7 @@ export default function AddContactModal() {
   }, [emailAddress, lastName, firstName]);
 
   const isDisabled = !firstName && !lastName && !emailAddress;
+
   return (
     <ModalBorder>
       <InnerWrapper>
