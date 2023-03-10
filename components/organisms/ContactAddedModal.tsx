@@ -4,7 +4,7 @@ import { Button, OuterWrapper } from '../../src/styles/generic';
 import { useAddressStore } from '../../src/zustand/store';
 
 export default function AddContactModal() {
-  const { setShowFirstModal, setFirstName, setLastName, setEmailAddress } = useAddressStore();
+  const { setShowFirstModal, resetForm } = useAddressStore();
   return (
     <ModalBorder>
       <InnerWrapper>
@@ -13,7 +13,7 @@ export default function AddContactModal() {
           <Button
             onClick={() => {
               setShowFirstModal(true);
-              setFirstName(setLastName(setEmailAddress('')));
+              resetForm();
             }}
           >
             Add Another
