@@ -6,6 +6,7 @@ const theme = {
     lightTeal: '#7FAFAB1D',
     coral: '#ED6D63',
     lightCoral: '#F4A7A1',
+    lightGrey: '#707070',
     darkGrey: '#262626',
   },
 
