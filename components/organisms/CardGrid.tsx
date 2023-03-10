@@ -1,14 +1,20 @@
+import { useEffect } from 'react';
 import { Contact, useAddressStore } from '../../src/zustand/store';
 import { ContactCard } from '../atoms';
 import styled from 'styled-components';
 
 export default function CardGrid() {
-  const { contacts } = useAddressStore();
+  const { filteredContacts, resetFilteredContacts, unsetSearchTerms } = useAddressStore();
+
+  useEffect(() => {
+    unsetSearchTerms === '' && resetFilteredContacts();
+  }, [unsetSearchTerms, resetFilteredContacts]);
+
   return (
     <CardGridWrapper>
       <InnerWrapper>
-        {contacts &&
-          contacts.map((contact: Contact, i: number) => (
+        {filteredContacts &&
+          filteredContacts.map((contact: Contact, i: number) => (
             <div key={i}>
               <ContactCard
                 firstName={contact.firstName}

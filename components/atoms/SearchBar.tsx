@@ -5,8 +5,8 @@ import { useState } from 'react';
 import { BodyText } from '../../src/styles/typography';
 
 export default function SearchBar() {
-  const { searchTerms, setSearchTerms } = useAddressStore();
-  const [softSearchTerms, setSoftSearchTerms] = useState(searchTerms);
+  const { unsetSearchTerms, setUnsetSearchTerms, setSearchTerms, resetFilteredContacts, filterContacts } =
+    useAddressStore();
   const [disableButton, setDisableButton] = useState(true);
 
   return (
@@ -15,15 +15,17 @@ export default function SearchBar() {
       <SearchWrapper>
         <SearchInput
           type="text"
-          value={softSearchTerms}
+          value={unsetSearchTerms}
           onChange={(event) => {
-            setSoftSearchTerms((event.target as HTMLInputElement).value);
-            setDisableButton(!softSearchTerms);
+            setUnsetSearchTerms((event.target as HTMLInputElement).value);
+            setDisableButton(!unsetSearchTerms);
+            !unsetSearchTerms && resetFilteredContacts();
           }}
         />
         <Button
           onClick={() => {
-            setSearchTerms(softSearchTerms);
+            setSearchTerms(unsetSearchTerms);
+            filterContacts(unsetSearchTerms);
             setSearchTerms('');
             setDisableButton(true);
           }}

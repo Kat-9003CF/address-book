@@ -17,11 +17,16 @@ interface StoreState {
   setEmailAddress: (emailAddress: string) => void;
   createNewContact: (newContact: Contact) => void;
   contacts: Contact[];
+  unsetSearchTerms: string;
+  setUnsetSearchTerms: (softSearchTerms: string) => void;
   searchTerms: string;
   setSearchTerms: (searchTerms: string) => void;
   showFirstModal: boolean;
   setShowFirstModal: (showSecondModal: boolean) => void;
   resetForm: () => void;
+  filteredContacts: Contact[];
+  filterContacts: (searchTerms: string) => void;
+  resetFilteredContacts: () => void;
 }
 
 export const useAddressStore = create<StoreState>()((set) => ({
@@ -45,14 +50,14 @@ export const useAddressStore = create<StoreState>()((set) => ({
       emailAddress: 'iluvBatman@gmail.com',
     },
     {
-      firstName: 'Selina',
-      lastName: 'Kyle',
+      firstName: 'Bruce',
+      lastName: 'Wayne',
       emailAddress: 'iluvBatman@gmail.com',
     },
     {
       firstName: 'Selina',
       lastName: 'Kyle',
-      emailAddress: 'iluvBatman@gmail.com',
+      emailAddress: 'iamBatman@gmail.com',
     },
   ],
   createNewContact: (newContact) => {
@@ -60,11 +65,22 @@ export const useAddressStore = create<StoreState>()((set) => ({
       contacts: [...contacts, newContact],
     }));
   },
+  unsetSearchTerms: '',
+  setUnsetSearchTerms: (unsetSearchTerms) => set(() => ({ unsetSearchTerms: unsetSearchTerms })),
   searchTerms: '',
-  setSearchTerms: (searchTerms) => {
-    set(() => ({ searchTerms: searchTerms }));
-  },
+  setSearchTerms: (searchTerms) => set(() => ({ searchTerms: searchTerms })),
   showFirstModal: false,
   setShowFirstModal: (value) => set(() => ({ showFirstModal: value })),
   resetForm: () => set(() => ({ firstName: '', lastName: '', emailAddress: '' })),
+  filteredContacts: [],
+  filterContacts: (searchTerms) => {
+    set(({ contacts }) => ({
+      filteredContacts: contacts.filter((contact) => contact.firstName.includes(searchTerms)),
+    }));
+  },
+  resetFilteredContacts: () => {
+    set(({ contacts }) => ({
+      filteredContacts: contacts,
+    }));
+  },
 }));
