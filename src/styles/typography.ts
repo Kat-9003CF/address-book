@@ -4,6 +4,7 @@ export const H1 = styled.h1`
   font-family: ${(props) => props.theme.fonts.robotoSlabLight};
   font-size: ${(props) => props.theme.fontSizes.large};
   font-weight: 300;
+  color: ${(props) => props.theme.colours.darkGrey};
 `;
 
 export const ModalHeader = styled.h1`
@@ -12,6 +13,7 @@ export const ModalHeader = styled.h1`
   line-height: ${(props) => props.theme.lineHeights.medium};
   font-weight: 400;
   margin: 0;
+  color: ${(props) => props.theme.colours.darkGrey};
 `;
 
 export const BodyText = styled.p`
@@ -20,6 +22,7 @@ export const BodyText = styled.p`
   line-height: ${(props) => props.theme.lineHeights.small};
   font-weight: 700;
   margin: 0;
+  color: ${(props) => props.theme.colours.darkGrey};
 `;
 
 export const Placeholder = styled.p`
@@ -33,4 +36,5 @@ export const Placeholder = styled.p`
   margin-left: 12px;
   color: ${({ theme }) => theme.colours.darkGrey};
   transition: 0.2s ease-in-out;
+  color: ${(props) => props.theme.colours.darkGrey};
 `;
