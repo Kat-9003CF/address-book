@@ -79,10 +79,11 @@ const ModalBorder = styled(OuterWrapper)`
   border-radius: 4px;
   max-width: 527px;
   width: 100%;
+  position: relative;
 `;
 
 const InnerWrapper = styled.div`
-  margin: 37px 34px;
+  margin: 37px 34px 118px 34px;
   display: flex;
   width: 100%;
   height: 100%;
