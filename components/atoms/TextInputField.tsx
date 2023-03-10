@@ -8,12 +8,14 @@ export default function TextInputField({
   onChange,
   value,
   onClick,
+  error,
 }: {
   type: string;
   placeholder?: string | null;
   onChange?(event: FormEvent<HTMLInputElement>): void;
   value: string;
   onClick?: MouseEventHandler<HTMLDivElement>;
+  error?: boolean;
 }) {
   const [hidePlaceholder, setHidePlaceholder] = useState(false);
 
@@ -28,7 +30,7 @@ export default function TextInputField({
     <>
       <InputWrapper onBlur={onBlur} onFocus={onFocus} onClick={onClick}>
         {!value && !hidePlaceholder && <Placeholder>{placeholder}</Placeholder>}
-        <InputField type={type} value={value} onChange={onChange} />
+        <InputField error={error} type={type} value={value} onChange={onChange} />
       </InputWrapper>
     </>
   );
@@ -42,12 +44,18 @@ const InputWrapper = styled.div`
   width: 100%;
 `;
 
-const InputField = styled.input`
-    background: ${(props) => props.theme.colours.lightTeal};
+const InputField = styled.input<{ error: boolean | undefined }>`
+    background: ${(props) => (props.error ? props.theme.colours.lightCoral : props.theme.colours.lightTeal)};
     border: none;
     padding: 12px;
     width: 100%;
     outline: none;
+    font-family: ${(props) => props.theme.fonts.robotoSlabRegular};
+    font-size: ${(props) => props.theme.fontSizes.small};
+    line-height: ${(props) => props.theme.lineHeights.small};
+    font-weight: 300;
+    color: ${({ theme }) => theme.colours.darkGrey};
+    transition: 0.2s ease-in-out;
     cursor: 'text';
     &:focus {
       border-radius: 4px;
