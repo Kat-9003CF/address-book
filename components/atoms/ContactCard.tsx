@@ -11,18 +11,18 @@ export default function ContactCard({
   emailAddress: string;
 }) {
   return (
-    <OuterWrapper>
+    <CardWrapper>
       <InnerWrapper>
         <CardText>Name</CardText>
         <CardDetails>{`${firstName} ${lastName}`}</CardDetails>
         <CardText>Email</CardText>
         <CardDetails>{`${emailAddress}`}</CardDetails>
       </InnerWrapper>
-    </OuterWrapper>
+    </CardWrapper>
   );
 }
 
-const OuterWrapper = styled.div`
+const CardWrapper = styled.div`
   transition: 0.2s ease-in-out;
   border: 1px solid ${(props) => props.theme.colours.teal};
   border-radius: 4px;

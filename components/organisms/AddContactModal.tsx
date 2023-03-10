@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { ModalHeader } from '../../src/styles/typography';
 import { InputFieldWithLabel } from '../molecules';
-import { Button } from '../../src/styles/generic';
+import { Button, OuterWrapper } from '../../src/styles/generic';
 import { useAddressStore } from '../../src/zustand/store';
 import { useEffect, useState } from 'react';
 
@@ -73,13 +73,6 @@ export default function AddContactModal() {
     </OuterWrapper>
   );
 }
-
-const OuterWrapper = styled.div`
-  border: 1px solid ${(props) => props.theme.colours.teal};
-  border-radius: 4px;
-  padding: 37px 34px 134px 34px;
-  position: relative;
-`;
 
 const InnerWrapper = styled.div`
   display: flex;

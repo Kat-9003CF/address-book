@@ -1,5 +1,11 @@
 import styled from 'styled-components';
 
+export const OuterWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
 export const Container = styled.div`
   max-width: 1920px;
   border: 1px solid green;
@@ -9,10 +15,10 @@ export const Container = styled.div`
   padding: 60px 180px 0 120px;
 `;
 
-export const Button = styled.button`
+export const Button = styled.button<{ isSearch?: boolean }>`
   background: ${(props) => props.theme.colours.teal};
   border: 1px solid ${(props) => props.theme.colours.darkTeal};
-  border-radius: 4px;
+  border-radius: ${(props) => (props.isSearch ? '0 4px 4px 0' : '4px')};
   width: 210px;
   height: 44px;
   font-family: ${(props) => props.theme.fonts.robotoSlabBold};
@@ -28,7 +34,7 @@ export const Button = styled.button`
   }
   &:disabled {
     cursor: inherit;
-    border: 1px solid ${(props) => props.theme.colours.teal};
+    border: 1px solid ${(props) => props.theme.colours.lightGrey};
     background: ${(props) => props.theme.colours.darkGrey};
   }
 `;

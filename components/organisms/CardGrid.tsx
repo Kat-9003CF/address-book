@@ -5,7 +5,7 @@ import styled from 'styled-components';
 export default function CardGrid() {
   const { contacts } = useAddressStore();
   return (
-    <OuterWrapper>
+    <CardGridWrapper>
       <InnerWrapper>
         {contacts &&
           contacts.map((contact: Contact, i: number) => (
@@ -18,13 +18,17 @@ export default function CardGrid() {
             </div>
           ))}
       </InnerWrapper>
-    </OuterWrapper>
+    </CardGridWrapper>
   );
 }
 
-const OuterWrapper = styled.div``;
+const CardGridWrapper = styled.div`
+  padding-top: 87px;
+`;
+
 const InnerWrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 48px;
+  max-width: 990px;
 `;
