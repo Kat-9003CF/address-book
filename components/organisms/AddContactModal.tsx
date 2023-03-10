@@ -6,7 +6,8 @@ import { useAddressStore } from '../../src/zustand/store';
 import { useEffect, useState } from 'react';
 
 export default function AddContactModal() {
-  const { firstName, setFirstName, lastName, setLastName, emailAddress, setEmailAddress } = useAddressStore();
+  const { firstName, setFirstName, lastName, setLastName, emailAddress, setEmailAddress, createNewContact } =
+    useAddressStore();
   const [isValidEmail, setIsValidEmail] = useState(true);
 
   const validateEmail = (emailAddress: string) => {
@@ -45,7 +46,13 @@ export default function AddContactModal() {
           error={!isValidEmail}
         />
         <ButtonWrapper>
-          <Button onClick={() => setIsValidEmail(!emailAddress && !validateEmail(emailAddress))} disabled={isDisabled}>
+          <Button
+            onClick={() => {
+              setIsValidEmail(!validateEmail(emailAddress));
+              createNewContact({ firstName: firstName, lastName: lastName, emailAddress: emailAddress });
+            }}
+            disabled={isDisabled}
+          >
             Add Contact
           </Button>
         </ButtonWrapper>

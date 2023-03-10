@@ -1,7 +1,7 @@
 import { Container } from '../src/styles/generic';
 import styled from 'styled-components';
 import { H1 } from '../src/styles/typography';
-import { AddContactModal } from '../components/organisms';
+import { AddContactModal, CardGrid } from '../components/organisms';
 
 export default function Home() {
   return (
@@ -13,7 +13,9 @@ export default function Home() {
             <AddContactModal />
           </ColumnWrapper>
           <ColumnWrapper>
-            <h2>Input goes here</h2>
+            <h2>
+              <CardGrid />
+            </h2>
           </ColumnWrapper>
         </FlexWrapper>
       </ContentWrapper>
