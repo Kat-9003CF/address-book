@@ -10,6 +10,19 @@ export default function AddContactModal() {
     useAddressStore();
   const [isValidEmail, setIsValidEmail] = useState(true);
 
+  const addNewContact = ({
+    firstName,
+    lastName,
+    emailAddress,
+  }: {
+    firstName: string;
+    lastName: string;
+    emailAddress: string;
+  }) => {
+    const newContact = { firstName: firstName, lastName: lastName, emailAddress: emailAddress };
+    createNewContact(newContact);
+  };
+
   const validateEmail = (emailAddress: string) => {
     return !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(emailAddress);
   };
@@ -49,7 +62,7 @@ export default function AddContactModal() {
           <Button
             onClick={() => {
               setIsValidEmail(!validateEmail(emailAddress));
-              createNewContact({ firstName: firstName, lastName: lastName, emailAddress: emailAddress });
+              addNewContact({ firstName, lastName, emailAddress });
             }}
             disabled={isDisabled}
           >
