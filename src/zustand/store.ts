@@ -17,6 +17,8 @@ interface StoreState {
   setEmailAddress: (emailAddress: string) => void;
   createNewContact: (newContact: Contact) => void;
   contacts: Contact[];
+  searchTerms: string;
+  setSearchTerms: (searchTerms: string) => void;
 }
 
 export const useAddressStore = create<StoreState>()((set) => ({
@@ -34,11 +36,29 @@ export const useAddressStore = create<StoreState>()((set) => ({
       lastName: 'Kyle',
       emailAddress: 'iluvBatman@gmail.com',
     },
+    {
+      firstName: 'Selina',
+      lastName: 'Kyle',
+      emailAddress: 'iluvBatman@gmail.com',
+    },
+    {
+      firstName: 'Selina',
+      lastName: 'Kyle',
+      emailAddress: 'iluvBatman@gmail.com',
+    },
+    {
+      firstName: 'Selina',
+      lastName: 'Kyle',
+      emailAddress: 'iluvBatman@gmail.com',
+    },
   ],
   createNewContact: (newContact) => {
-    console.log(newContact);
     set(({ contacts }) => ({
       contacts: [...contacts, newContact],
     }));
+  },
+  searchTerms: '',
+  setSearchTerms: (searchTerms) => {
+    set(() => ({ searchTerms: searchTerms }));
   },
 }));

@@ -1,25 +1,27 @@
-import { Container } from '../src/styles/generic';
+import { Container, OuterWrapper } from '../src/styles/generic';
 import styled from 'styled-components';
 import { H1 } from '../src/styles/typography';
 import { AddContactModal, CardGrid } from '../components/organisms';
+import { SearchBar } from '../components/atoms';
 
 export default function Home() {
   return (
-    <Container>
-      <ContentWrapper>
-        <H1>Address Book</H1>
-        <FlexWrapper>
-          <ColumnWrapper>
-            <AddContactModal />
-          </ColumnWrapper>
-          <ColumnWrapper>
-            <h2>
+    <OuterWrapper>
+      <Container>
+        <ContentWrapper>
+          <H1>Address Book</H1>
+          <FlexWrapper>
+            <ColumnWrapper>
+              <AddContactModal />
+            </ColumnWrapper>
+            <ColumnWrapper>
+              <SearchBar />
               <CardGrid />
-            </h2>
-          </ColumnWrapper>
-        </FlexWrapper>
-      </ContentWrapper>
-    </Container>
+            </ColumnWrapper>
+          </FlexWrapper>
+        </ContentWrapper>
+      </Container>
+    </OuterWrapper>
   );
 }
 
