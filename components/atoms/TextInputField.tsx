@@ -30,7 +30,14 @@ export default function TextInputField({
     <>
       <InputWrapper onBlur={onBlur} onFocus={onFocus} onClick={onClick}>
         {!value && !hidePlaceholder && <Placeholder>{placeholder}</Placeholder>}
-        <InputField error={error} type={type} value={value} onChange={onChange} />
+        <InputField
+          aria-label={value === 'email' ? 'email' : 'text'}
+          aria-required="true"
+          error={error}
+          type={type}
+          value={value}
+          onChange={onChange}
+        />
       </InputWrapper>
     </>
   );
@@ -41,7 +48,6 @@ const InputWrapper = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  width: 100%;
 `;
 
 const InputField = styled.input<{ error: boolean | undefined }>`

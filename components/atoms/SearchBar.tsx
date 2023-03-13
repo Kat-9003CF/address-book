@@ -1,8 +1,9 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { useAddressStore } from '../../src/zustand/store';
 import { Button } from '../../src/styles/generic';
 import { useState } from 'react';
 import { BodyText } from '../../src/styles/typography';
+import { mq } from '../../src/utils/mq';
 
 export default function SearchBar() {
   const { unsetSearchTerms, setUnsetSearchTerms, setSearchTerms, resetFilteredContacts, filterContacts } =
@@ -14,11 +15,13 @@ export default function SearchBar() {
       <BodyText>Search address book</BodyText>
       <SearchWrapper>
         <SearchInput
+          aria-label="text"
+          aria-required="true"
           type="text"
           value={unsetSearchTerms}
           onChange={(event) => {
             setUnsetSearchTerms((event.target as HTMLInputElement).value);
-            setDisableButton(!unsetSearchTerms);
+            setDisableButton(unsetSearchTerms.length <= 1);
             !unsetSearchTerms && resetFilteredContacts();
           }}
         />
@@ -31,6 +34,7 @@ export default function SearchBar() {
           }}
           isSearch
           disabled={disableButton}
+          fixedMaxWidth
         >
           Search
         </Button>
@@ -40,7 +44,9 @@ export default function SearchBar() {
 }
 
 const SearchAtomWrapper = styled.div`
-  width: 100%;
+  ${mq.tablet(css`
+    margin-top: 32px;
+  `)};
 `;
 const SearchWrapper = styled.div`
   display: flex;
@@ -67,4 +73,9 @@ cursor: 'text';
   border-radius: 4px;
   outline: 1px solid ${(props) => props.theme.colours.teal};
   box-shadow(0px 0px 3px ${({ theme }) => theme.colours.primary});
-  transition: 0.2s ease-in-out;`;
+  transition: 0.2s ease-in-out} 
+  ${mq.mobile(css`
+    height: 44px;
+    padding-left: 12px;
+  `)};
+  `;
