@@ -36,7 +36,7 @@ export const ModalHeader = styled.h2`
   `)};
 `;
 
-export const BodyText = styled.p`
+export const BodyText = styled.h2`
   font-family: ${(props) => props.theme.fonts.robotoSlabBold};
   font-size: ${(props) => props.theme.fontSizes.small};
   line-height: ${(props) => props.theme.lineHeights.small};
