@@ -4,7 +4,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 This is a responsive address book app. It allows the user to add contacts, view contacts and search their contacts list. It has designs and functionality for desktop, tablet and mobile.
 
-# Some packages used:
+### Some packages used:
 
 - React
 - Cypress (Axe for accessibility testing)
@@ -17,11 +17,11 @@ This project uses Yarn as a package manager.
 
 After cloning the repo:
 
-# Install all packages and dependencies
+### Install all packages and dependencies
 
 `yarn`
 
-# Launch the dev server
+### Launch the dev server
 
 `yarn dev`
 
