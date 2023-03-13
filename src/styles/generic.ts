@@ -1,21 +1,22 @@
-import styled from 'styled-components';
-
-export const OuterWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
+import styled, { css } from 'styled-components';
+import { mq } from '../utils/mq';
 
 export const Container = styled.div`
   max-width: 1920px;
-  border: 1px solid green;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 60px 180px 0 120px;
+  width: 100%;
+  margin: 60px 120px 20px 120px;
+  ${mq.desktopSmall(css`
+    margin: 30px 60px 30px 60px;
+  `)};
+  ${mq.tablet(css`
+    margin: 12px 20px 20px 20px;
+  `)};
+  ${mq.mobile(css`
+    margin: 12px 20px 20px 20px;
+  `)};
 `;
 
-export const Button = styled.button<{ isSearch?: boolean }>`
+export const Button = styled.button<{ isSearch?: boolean; fixedMaxWidth?: boolean }>`
   background: ${(props) => props.theme.colours.teal};
   border: 1px solid ${(props) => props.theme.colours.darkTeal};
   border-radius: ${(props) => (props.isSearch ? '0 4px 4px 0' : '4px')};
@@ -37,4 +38,13 @@ export const Button = styled.button<{ isSearch?: boolean }>`
     border: 1px solid ${(props) => props.theme.colours.lightGrey};
     background: ${(props) => props.theme.colours.darkGrey};
   }
+  ${mq.tablet(css`
+    font-size: ${(props) => props.theme.tabletFontSizes.small};
+    line-height: ${(props) => props.theme.tabletLineHeights.small};
+  `)};
+  ${mq.mobile(css<{ fixedMaxWidth?: boolean }>`
+    width: ${(props) => (props.fixedMaxWidth ? '210px' : '100%')};
+    font-size: ${(props) => props.theme.mobileFontSizes.small};
+    line-height: ${(props) => props.theme.mobileLineHeights.small};
+  `)};
 `;

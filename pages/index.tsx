@@ -1,45 +1,78 @@
-import { Container, OuterWrapper } from '../src/styles/generic';
-import styled from 'styled-components';
+import { Container } from '../src/styles/generic';
+import styled, { css } from 'styled-components';
 import { H1 } from '../src/styles/typography';
-import { AddContactModal, CardGrid, ContactAddedModal } from '../components/organisms';
+import { CardGrid, Modal } from '../components/organisms';
 import { SearchBar } from '../components/atoms';
-import { useAddressStore } from '../src/zustand/store';
+import { mq } from '../src/utils/mq';
+import Head from 'next/head';
 
 export default function Home() {
-  const { showFirstModal } = useAddressStore();
   return (
     <OuterWrapper>
-      <Container>
-        <ContentWrapper>
-          <H1>Address Book</H1>
-          <FlexWrapper>
-            <ColumnWrapper>{showFirstModal ? <AddContactModal /> : <ContactAddedModal />}</ColumnWrapper>
-            <ColumnWrapper>
-              <SearchBar />
-              <CardGrid />
-            </ColumnWrapper>
-          </FlexWrapper>
-        </ContentWrapper>
-      </Container>
+      <Head>
+        <title>Address Book</title>
+      </Head>
+      <main>
+        <Container>
+          <div>
+            <H1>Address Book</H1>
+            <FlexWrapper>
+              <ColOneWrapper>
+                <Modal />
+              </ColOneWrapper>
+              <ColTwoWrapper>
+                <SearchBar />
+                <CardGrid />
+              </ColTwoWrapper>
+            </FlexWrapper>
+          </div>
+        </Container>
+      </main>
     </OuterWrapper>
   );
 }
 
-const ContentWrapper = styled.div`
-  width: 100%;
+const OuterWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 const FlexWrapper = styled.div`
   display: flex;
   width: 100%;
-  gap: 80px; //check size
+  gap: 100px;
+  ${mq.tablet(css`
+    display: inline-block;
+    gap: 0;
+  `)};
+  ${mq.mobile(css`
+    display: inline;
+  `)};
 `;
 
-const ColumnWrapper = styled.div`
-  .left {
-    flex: 25%;
-  }
-  .right {
-    flex: 75%;
-  }
+const ColOneWrapper = styled.div`
+  padding-top: 20px;
+  max-width: 500px;
+  ${mq.mobile(css`
+    max-width: 400px;
+  `)};
+  ${mq.tablet(css`
+    padding: 0;
+    max-width: unset;
+  `)};
+`;
+
+const ColTwoWrapper = styled.div`
+  max-width: 1000px;
+  min-width: 900px;
+  ${mq.desktopSmall(css`
+    max-width: 800px;
+    min-width: unset;
+  `)};
+  ${mq.tablet(css`
+    max-width: unset; 
+    min-width: unset;
+%;
+  `)};
 `;
