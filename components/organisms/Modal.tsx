@@ -52,6 +52,9 @@ const InnerWrapper = styled.div`
     max-width: unset;
     margin: 30px 28px 80px 28px;
   `)};
+  min-width: unset;
+  width: 100%;
+  max-width: unset;
   ${mq.mobile(css`
     margin: 20px 16px;
   `)};

@@ -4,15 +4,15 @@ import { mq } from '../utils/mq';
 export const Container = styled.div`
   max-width: 1920px;
   width: 100%;
-  margin: 60px 120px 20px 120px;
+  padding: 60px 120px 20px 120px;
   ${mq.desktopSmall(css`
-    margin: 30px 60px 30px 60px;
+    padding: 30px 60px;
   `)};
   ${mq.tablet(css`
-    margin: 12px 20px 20px 20px;
+    padding: 12px 20px;
   `)};
   ${mq.mobile(css`
-    margin: 12px 20px 20px 20px;
+    padding: 12px 20px;
   `)};
 `;
 

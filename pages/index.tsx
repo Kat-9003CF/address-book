@@ -12,22 +12,18 @@ export default function Home() {
       <Head>
         <title>Address Book</title>
       </Head>
-      <main>
-        <Container>
-          <div>
-            <H1>Address Book</H1>
-            <FlexWrapper>
-              <ColOneWrapper>
-                <Modal />
-              </ColOneWrapper>
-              <ColTwoWrapper>
-                <SearchBar />
-                <CardGrid />
-              </ColTwoWrapper>
-            </FlexWrapper>
-          </div>
-        </Container>
-      </main>
+      <Container role="main">
+        <H1>Address Book</H1>
+        <FlexWrapper>
+          <ColOneWrapper>
+            <Modal />
+          </ColOneWrapper>
+          <ColTwoWrapper>
+            <SearchBar />
+            <CardGrid />
+          </ColTwoWrapper>
+        </FlexWrapper>
+      </Container>
     </OuterWrapper>
   );
 }
@@ -36,6 +32,7 @@ const OuterWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
 `;
 
 const FlexWrapper = styled.div`

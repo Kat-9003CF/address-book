@@ -13,6 +13,7 @@ const CardWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
   height: 79px;
   border: 1px solid ${(props) => props.theme.colours.teal};
   border-radius: 4px;
