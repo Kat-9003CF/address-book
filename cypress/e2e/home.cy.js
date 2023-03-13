@@ -33,3 +33,31 @@ describe('Add contact button', () => {
       );
   });
 });
+
+describe('Add contact button', () => {
+  it('Should be enabed on valid email', () => {
+    cy.visit('/');
+    cy.get('[role="main"]').should('be.visible');
+    cy.get('[data-cy="colOne"]')
+      .parent()
+      .within(() =>
+        cy
+          .get('[data-cy="colOne"]')
+          .parent()
+          .within(() =>
+            cy
+              .get('[data-cy="modal"]')
+              .parent()
+              .within(() =>
+                cy
+                  .get('[data-cy="add-contact"]')
+                  .parent()
+                  .within(() => {
+                    cy.get('[type="email"]').type('email@email.com');
+                    cy.get('[data-cy="button"]').should('be.enabled');
+                  })
+              )
+          )
+      );
+  });
+});

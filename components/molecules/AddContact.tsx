@@ -65,7 +65,6 @@ export default function AddContact() {
         placeholder="Enter last name"
       />
       <InputFieldWithLabel
-        data-cy="email-wrapper"
         label="Email"
         type="email"
         value={emailAddress}
