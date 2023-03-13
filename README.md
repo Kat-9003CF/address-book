@@ -15,6 +15,8 @@ This is a responsive address book app. It allows the user to add contacts, view 
 
 This project uses Yarn as a package manager.
 
+After cloning the repo:
+
 # Install all packages and dependencies
 
 `yarn`
