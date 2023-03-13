@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import { Button } from '../../src/styles/generic';
 import { TealBodyText } from '../../src/styles/typography';
 import { useAddressStore } from '../../src/zustand/store';
