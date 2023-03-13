@@ -6,6 +6,7 @@ export const Container = styled.div`
   width: 100%;
   padding: 60px 120px 20px 120px;
   ${mq.desktopSmall(css`
+    max-width: 1440px;
     padding: 30px 60px;
   `)};
   ${mq.tablet(css`
