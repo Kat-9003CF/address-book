@@ -27,6 +27,16 @@ After cloning the repo:
 
 `yarn dev`
 
+### Formatting and linting
+
+`yarn format`
+&
+`yarn lint`
+
+### Testing
+
+`yarn cypress open`
+
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 ## Learn More
