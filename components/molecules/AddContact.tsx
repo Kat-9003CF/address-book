@@ -48,7 +48,7 @@ export default function AddContact() {
   };
 
   return (
-    <ContentWrapper>
+    <ContentWrapper data-cy="add-contact">
       <ModalHeader>Add Contact Details</ModalHeader>
       <InputFieldWithLabel
         label="First Name"
@@ -65,6 +65,7 @@ export default function AddContact() {
         placeholder="Enter last name"
       />
       <InputFieldWithLabel
+        data-cy="email-wrapper"
         label="Email"
         type="email"
         value={emailAddress}
@@ -77,6 +78,7 @@ export default function AddContact() {
       />
       <ButtonWrapper>
         <Button
+          data-cy="button"
           onClick={() => {
             addNewContact({ firstName, lastName, emailAddress, isValidEmail });
           }}

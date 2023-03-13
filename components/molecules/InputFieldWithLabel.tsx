@@ -23,7 +23,14 @@ export default function InputFieldWithLabel({
     <>
       {label && <LabelText error={error}>{label}</LabelText>}
       {type === 'email' && error && <ErrorText>Please enter a valid email address</ErrorText>}
-      <TextInputField type={type} placeholder={placeholder || null} onChange={onChange} value={value} error={error} />
+      <TextInputField
+        data-cy="email-field"
+        type={type}
+        placeholder={placeholder || null}
+        onChange={onChange}
+        value={value}
+        error={error}
+      />
     </>
   );
 }
