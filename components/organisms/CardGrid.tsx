@@ -1,40 +1,61 @@
 import { useEffect } from 'react';
 import { Contact, useAddressStore } from '../../src/zustand/store';
-import { ContactCard } from '../atoms';
-import styled from 'styled-components';
+import { ContactCard, EmptyGrid } from '../atoms';
+import styled, { css } from 'styled-components';
+import { mq } from '../../src/utils/mq';
 
 export default function CardGrid() {
-  const { filteredContacts, resetFilteredContacts, unsetSearchTerms } = useAddressStore();
+  const { contacts, filteredContacts, resetFilteredContacts, unsetSearchTerms } = useAddressStore();
 
   useEffect(() => {
-    unsetSearchTerms === '' && resetFilteredContacts();
-  }, [unsetSearchTerms, resetFilteredContacts]);
+    contacts && unsetSearchTerms === '' && resetFilteredContacts();
+  }, [unsetSearchTerms, resetFilteredContacts, contacts]);
 
   return (
     <CardGridWrapper>
-      <InnerWrapper>
-        {filteredContacts &&
-          filteredContacts.map((contact: Contact, i: number) => (
-            <div key={i}>
+      {contacts.length ? (
+        <GridWrapper>
+          {filteredContacts.map((contact: Contact, i: number) => (
+            <CardWrapper key={i}>
               <ContactCard
                 firstName={contact.firstName}
                 lastName={contact.lastName}
                 emailAddress={contact.emailAddress}
               />
-            </div>
+            </CardWrapper>
           ))}
-      </InnerWrapper>
+        </GridWrapper>
+      ) : (
+        <EmptyGrid />
+      )}
     </CardGridWrapper>
   );
 }
 
 const CardGridWrapper = styled.div`
-  padding-top: 87px;
+  margin-top: 87px;
+  ${mq.tablet(css`
+    margin-top: 44px;
+  `)};
+  ${mq.mobile(css`
+    margin-top: 24px;
+  `)};
 `;
 
-const InnerWrapper = styled.div`
+const GridWrapper = styled.div`
+  width: 100%;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 20px 48px;
-  max-width: 990px;
+  column-gap: 20px;
+
+  ${mq.tablet(css`
+    grid-template-columns: repeat(2, 1fr);
+  `)};
+  ${mq.mobile(css`
+    display: inline;
+  `)};
+`;
+
+const CardWrapper = styled.div`
+  margin-bottom: 20px;
 `;
