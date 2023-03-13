@@ -15,7 +15,7 @@ export default function Home() {
       <Container role="main">
         <H1>Address Book</H1>
         <FlexWrapper>
-          <ColOneWrapper>
+          <ColOneWrapper data-cy="colOne">
             <Modal />
           </ColOneWrapper>
           <ColTwoWrapper>

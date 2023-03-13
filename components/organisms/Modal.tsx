@@ -6,7 +6,7 @@ import { mq } from '../../src/utils/mq';
 export default function AddContactModal() {
   const { showFirstModal } = useAddressStore();
   return (
-    <ModalBorder>
+    <ModalBorder data-cy="modal">
       {showFirstModal ? (
         <InnerWrapper>
           <AddContact />
