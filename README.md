@@ -13,7 +13,9 @@ This is a responsive address book app. It allows the user to add contacts, view 
 
 ## Install and run the app
 
-This project uses Yarn as a package manager.
+This project uses Yarn as a package manager. If you don't have yarn, it can be added with npm which comes bundled with Node.js.
+
+`npm install --global yarn`
 
 After cloning the repo:
 
