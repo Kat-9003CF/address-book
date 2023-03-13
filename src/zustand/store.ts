@@ -38,28 +38,7 @@ export const useAddressStore = create<StoreState>()((set) => ({
   setLastName: (lastName) => set(() => ({ lastName: lastName })),
   emailAddress: '',
   setEmailAddress: (emailAddress) => set(() => ({ emailAddress: emailAddress })),
-  contacts: [
-    {
-      firstName: 'Selina',
-      lastName: 'Kyle',
-      emailAddress: 'iluvBatman@gmail.com',
-    },
-    {
-      firstName: 'Selina',
-      lastName: 'Kyle',
-      emailAddress: 'iluvBatman@gmail.com',
-    },
-    {
-      firstName: 'Bruce',
-      lastName: 'Wayne',
-      emailAddress: 'iluvBatman@gmail.com',
-    },
-    {
-      firstName: 'Selina',
-      lastName: 'Kyle',
-      emailAddress: 'iamBatman@gmail.com',
-    },
-  ],
+  contacts: [],
   createNewContact: (newContact) => {
     set(({ contacts }) => ({
       contacts: [...contacts, newContact],
@@ -69,7 +48,7 @@ export const useAddressStore = create<StoreState>()((set) => ({
   setUnsetSearchTerms: (unsetSearchTerms) => set(() => ({ unsetSearchTerms: unsetSearchTerms })),
   searchTerms: '',
   setSearchTerms: (searchTerms) => set(() => ({ searchTerms: searchTerms })),
-  showFirstModal: false,
+  showFirstModal: true,
   setShowFirstModal: (value) => set(() => ({ showFirstModal: value })),
   resetForm: () => set(() => ({ firstName: '', lastName: '', emailAddress: '' })),
   filteredContacts: [],
