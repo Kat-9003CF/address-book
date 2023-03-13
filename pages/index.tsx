@@ -38,7 +38,10 @@ const OuterWrapper = styled.div`
 const FlexWrapper = styled.div`
   display: flex;
   width: 100%;
-  gap: 100px;
+  gap: 70px;
+  ${mq.desktopSmall(css`
+    gap: 50px;
+  `)};
   ${mq.tablet(css`
     display: inline-block;
     gap: 0;
@@ -61,8 +64,8 @@ const ColOneWrapper = styled.div`
 `;
 
 const ColTwoWrapper = styled.div`
-  max-width: 1000px;
-  min-width: 900px;
+  width: 100%;
+  min-width: 800px;
   ${mq.desktopSmall(css`
     max-width: 800px;
     min-width: unset;

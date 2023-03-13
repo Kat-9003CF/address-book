@@ -1,6 +1,6 @@
 import { css } from 'styled-components';
 
-export const BREAKPOINT_LG = 1179;
+export const BREAKPOINT_LG = 1300;
 export const BREAKPOINT_MD = 991;
 export const BREAKPOINT_SM = 767;
 export const BREAKPOINT_XS = 558;
